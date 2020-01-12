@@ -1,0 +1,32 @@
+setup:
+  type: python  # python or r
+  tag: 0.1  # use 0.1 tag version
+
+# global environment variables
+environment:
+  key1: value will be a string,
+  key2: "9090"
+  key3: previous value is quoted because yaml can interpret that as a int or decimal
+
+steps:
+  # elements in steps are executed in order with the name representing the step name
+  - step: Extraction
+    tasks:
+      # elements in list are executed together
+      - name: Extract from Cars data from Github
+        cmd: extract_a.py
+        environment:
+          file_name: cars.csv
+
+      - name: Extract from MT Cars data from Github
+        cmd: extract_b.py
+
+  - step: Transformation
+    tasks:
+      - name: Multiply numeric data in cars by 2
+        cmd: transform.py
+
+  - step: Save
+    tasks:
+      - name: Write just cars data to database
+        cmd: save.py
