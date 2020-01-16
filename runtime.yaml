@@ -1,6 +1,7 @@
 setup:
-  type: python  # python or r
-  tag: 0.1  # use 0.1 tag version
+  build: false
+  commit: master
+  image: danielbok/python-nida:3.7.5
 
 # global environment variables
 environment:

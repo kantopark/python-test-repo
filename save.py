@@ -5,13 +5,14 @@ from sqlalchemy import create_engine
 
 
 def get_engine():
-    uid = os.getenv("DB_USERNAME")
-    pwd = os.getenv("DB_PASSWORD")
+    uid = os.getenv("POSTGRES_USER")
+    pwd = os.getenv("POSTGRES_PASSWORD")
 
-    host = os.getenv("DB_HOST")
-    port = os.getenv("DB_PORT")
+    host = os.getenv("POSTGRES_HOST")
+    port = os.getenv("POSTGRES_PORT")
+    db = os.getenv("POSTGRES_DB")
 
-    return create_engine(f"postgres://{uid}:{pwd}@{host}:{port}/postgres")
+    return create_engine(f"postgres://{uid}:{pwd}@{host}:{port}/{db}")
 
 
 def save():
