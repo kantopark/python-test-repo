@@ -20,6 +20,8 @@ def save():
     df = pd.read_csv("/output/transformed_cars.csv")
     df.to_sql("cars", engine)
 
+    print("save ran successfully")
+
 
 if __name__ == '__main__':
     save()

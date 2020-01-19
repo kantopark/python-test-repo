@@ -7,6 +7,8 @@ def transform():
 
     cars.to_csv("/output/transformed_cars.csv")
 
+    print("transform ran successfully")
+
 
 if __name__ == '__main__':
     transform()

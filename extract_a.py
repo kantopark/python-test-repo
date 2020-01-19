@@ -11,6 +11,7 @@ def get_cars_data():
 
     # /output is a mounted volume in the docker container
     df.to_csv("/output/cars.csv")
+    print("get_cars_data ran successfully")
 
 
 if __name__ == '__main__':

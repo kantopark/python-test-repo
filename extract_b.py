@@ -26,3 +26,9 @@ def get_mt_cars_data():
 
     with open("/output/mtcars.csv", "w+") as f:
         f.write("\n".join(content))
+
+    print("get_mt_cars_data ran successfully")
+
+
+if __name__ == '__main__':
+    get_mt_cars_data()
