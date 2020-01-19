@@ -1,7 +1,7 @@
 setup:
   build: false
   commit: master
-  image: danielbok/python-nida:3.7.5
+  image: danielbok/nida-python:3.7.5
 
 # global environment variables
 environment:
