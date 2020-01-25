@@ -11,7 +11,11 @@ environment:
 
 steps:
   # elements in steps are executed in order with the name representing the step name
-  - step: Extraction
+  # step names must be unique. For each task within the step, their names must be unique.
+  # however, the name need not be unique across steps. Thus, you could have Step1:Fn1
+  # and Step2:Fn1. Even though the function names are both Fn1, since they belong to
+  # different steps, it is okay
+  - name: Extraction
     tasks:
       # elements in list are executed together
       - name: Extract from Cars data from Github
@@ -22,12 +26,12 @@ steps:
       - name: Extract from MT Cars data from Github
         cmd: extract_b.py
 
-  - step: Transformation
+  - name: Transformation
     tasks:
       - name: Multiply numeric data in cars by 2
         cmd: transform.py
 
-  - step: Save
+  - name: Save
     tasks:
       - name: Write just cars data to database
         cmd: save.py
