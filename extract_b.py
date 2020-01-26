@@ -16,16 +16,17 @@ def get_mt_cars_data():
 
     # read csv content
     for i, line in enumerate(resp.text.split("\n")):
-        parts = line.strip().split(",")
         if i == 0:
             # first row is header
-            content.append(parts)
+            content.append(line)
         else:
+            parts = line.strip().split(",")
             # first column is string, the rest are int
-            content.append([j if i == 0 else int(j) for i, j in enumerate(parts)])
+            items = [j if i == 0 else float(j) for i, j in enumerate(parts)]
+            content.append(','.join(str(i) for i in items))
 
     with open("/output/mtcars.csv", "w+") as f:
-        f.write("\n".join(content))
+        f.write('\n'.join(content).strip())
 
     print("get_mt_cars_data ran successfully")
 
