@@ -3,11 +3,13 @@ setup:
   commit: master
   image: danielbok/nida-python:3.7.5
 
-# global environment variables
+# global environment variables. If value can be interpreted as a boolean or int,
+# they should ideally be quoted to prevent any possible errors. Even if values
+# are strings, there is no harm in quoting them
 environment:
-  key1: value will be a string,
-  key2: "9090"
-  key3: previous value is quoted because yaml can interpret that as a int or decimal
+  key1: key1
+  key2: key2
+  key3: "key3"
 
 steps:
   # elements in steps are executed in order with the name representing the step name
@@ -16,6 +18,9 @@ steps:
   # and Step2:Fn1. Even though the function names are both Fn1, since they belong to
   # different steps, it is okay
   - name: Extraction
+    environment:
+      key1: step key1
+      key4: key4
     tasks:
       # elements in list are executed together
       - name: Extract Cars data from Github
@@ -25,6 +30,9 @@ steps:
 
       - name: Extract MT Cars data from Github
         cmd: extract_b.py
+        environment:
+          key1: "function key1"
+          key2: "function key2"
 
   - name: Transformation
     tasks:
