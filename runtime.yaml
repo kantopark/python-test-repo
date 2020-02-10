@@ -1,7 +1,7 @@
 setup:
   build: false
   commit: master
-  image: danielbok/nida-python:3.7.5
+  image: danielbok/nida-python:3.7.6
 
 # global environment variables. If value can be interpreted as a boolean or int,
 # they should ideally be quoted to prevent any possible errors. Even if values
