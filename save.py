@@ -7,7 +7,6 @@ from sqlalchemy import create_engine
 def get_engine():
     uid = os.getenv("POSTGRES_USER")
     pwd = os.getenv("POSTGRES_PASSWORD")
-
     host = os.getenv("POSTGRES_HOST")
     port = os.getenv("POSTGRES_PORT")
     db = os.getenv("POSTGRES_DB")
